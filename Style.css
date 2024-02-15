@@ -1,0 +1,17 @@
+    body {
+        background-color: lightblue;
+        font-size: 100%;
+        margin-left: 2em ;
+        margin-right: 2em;
+    }
+    p {
+        color: darkgrey;
+    }
+    header {
+        font-family: Arial, sans-serif;text-align: center;
+        padding-bottom: .75em;
+        margin-bottom: 0;    
+    }
+    img {
+        border: 2px solid black;
+    }
