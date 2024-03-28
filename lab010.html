@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+</head>
+<body>
+    <h1>Grade Calculator</h1>
+    <form id="gradeForm">
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" required><br>
+        
+        <label for="numericalScore">Numerical Score:</label>
+        <input type="number" id="numericalScore" min="0" max="100" inputmode="numeric" required><br>
+        
+        <button type="submit">Calculate Grade</button>
+    </form>
+    <div id="gradeOutput"></div>
+
+    <script>
+        document.getElementById('gradeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const studentName = document.getElementById('studentName').value;
+            let numericalScore = parseFloat(document.getElementById('numericalScore').value);
+
+            while (isNaN(numericalScore) || numericalScore < 0 || numericalScore > 100) {
+                alert('Please enter a valid numerical score between 0 and 100.');
+                numericalScore = parseFloat(prompt('Enter the numerical score (0-100):'));
+            }
+
+            function calculateGrade(score) {
+                if (score >= 90) {
+                    return 'A';
+                } else if (score >= 80) {
+                    return 'B';
+                } else if (score >= 70) {
+                    return 'C';
+                } else if (score >= 60) {
+                    return 'D';
+                } else {
+                    return 'F';
+                }
+            }
+            const grade = calculateGrade(numericalScore);
+            document.getElementById('gradeOutput').innerHTML = `<p>Congratulations, ${studentName}! You got a(n) ${grade}.</p>`;
+        });
+    </script>
+</body>
+</html>
